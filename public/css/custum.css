@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f4f4f4 !important;
+    font-family: 'Roboto', sans-serif;
+    color: #002648 !important;
+}
+
+a, a:hover{ text-decoration: none; }
+li{ list-style: none; }
+
+.cursive{ font-family: 'Lobster', cursive; }
+
+#showcase{
+    background: #333;
+    position: relative;
+}
+
+#showcase:before{
+    content: '';
+    background: url('../img/showcase.jpg') no-repeat center center/cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+#showcase .showcase-content{
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+/* Event */
+.event{ display: flex; }
+.calendar{ width: 60px; }
+.icons{ font-size: 12px; }
+
+/* About */
+#about{ background: #eee; }
+
+/* Register & Signin */
+.reg-form{
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px #333;
+}
+
+.reg-form p{
+    color: #333;
+    font-size: 15px;
+}
+
+/* Submit event */
+#submit-event{
+    background: #333;
+    position: relative;
+}
+
+#submit-event:before{
+    content: '';
+    background: url('../img/showcase.jpg') no-repeat center center/cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+#submit-event>div{
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer */
+#footer{
+    background: #333;
+}

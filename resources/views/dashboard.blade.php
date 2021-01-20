@@ -40,7 +40,10 @@
   </button>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="btn btn-success" href="{{route('home')}}">Sign out</a>
+    <form method="POST" action="{{route('logout')}}">
+    @csrf
+        <button type="submit" class="btn btn-success">SIGN OUT</button>
+    </form>
     </li>
   </ul>
 </nav>

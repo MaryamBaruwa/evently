@@ -14,15 +14,15 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('guest')->name('home');
+Route::get('/', [EventController::class, 'welcome'])->middleware('guest')->name('events.welcome');
 
 Route::get('/add-event', [EventController::class, 'addEvent'])->middleware('auth')->name('event.add');
 
 Route::get('/event/{id}/detail', [EventController::class, 'eventDetail'])->middleware('auth')->name('event.detail');
 
 Route::post('/create-event', [EventController::class, 'createEvent'])->middleware('auth')->name('event.create');
+
+Route::get('/search', [EventController::class, 'search'])->name('events.search');
 
 Route::get('/dashboard', [EventController::class, 'home'])->middleware(['auth'])->name('dashboard');
 

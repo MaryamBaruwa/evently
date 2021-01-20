@@ -102,7 +102,7 @@
                         <label for="checkbox">I agree to the <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a></label>
                     </div>
                     <button type="submit" class="btn btn-block btn-primary">Sign Up</button>
-                    <p class="mt-2 text-center">Already have an account? <a href="login.html">Login</a></p>
+                    <p class="mt-2 text-center">Already have an account? <a href="{{route('login')}}">Login</a></p>
                 </form>
             </div>
         </div>

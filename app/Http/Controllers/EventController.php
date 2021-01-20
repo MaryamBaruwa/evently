@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 
+use Carbon\Carbon;
+
 class EventController extends Controller
 {
     public function home(){
         $events = auth()->user()->event()->get();
         return view('dashboard')->with('events', $events);
+    }
+
+    public function welcome(){
+        $events = Event::all();
+        return view('welcome')->with('events', $events);
     }
 
     public function addEvent(){
@@ -18,11 +25,11 @@ class EventController extends Controller
     
     public function createEvent(Request $request){
         $request->validate([
-            "name" => "required",
+            "name" => "required|max:255",
             "type" => "required",
             "description" => "required",
             "start_date" => "required|date|after:today",
-            "end_date" => "required|date|after:start_date",
+            "end_date" => "required|date",
             "time" => "required",
             "venue" => "required",
             "city" => "required",
@@ -53,4 +60,16 @@ class EventController extends Controller
 
         return view('event_details')->with('event', $event);
     }
+
+    public function search(Request $request){
+        $search = $request->input('search');
+        $events = Event::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('type', 'LIKE', "%{$search}%")
+            ->orWhere('state', 'LIKE', "%{$search}%")
+            ->orderBy('start_date', 'DESC')->get();
+    
+        return view('welcome', compact('events'));
+    }
+
 }

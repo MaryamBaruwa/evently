@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav m-auto">
                 <li class="nav-item active mx-1">
-                  <a class="nav-link font-weight-bold" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link font-weight-bold" href="{{route('events.welcome')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown mx-1">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +80,7 @@
 
     <div id="event-details" class="pb-5">
         <div class="container">
-            <h3 class="text-primary">Hair Exhibition</h3>
+            <h3 class="text-primary">{{$event->name}}</h3>
             <div class="d-flex justify-content-between align-items-center pb-3" style="border-bottom: 1px solid #ccc;">
                 <div>
                     <span class="mr-4"><i class="far fa-user"></i> Poster By <a href="#">Lizzie</a></span>
@@ -102,7 +102,7 @@
                         <p class="text-info">Event Title:</p>
                     </div>
                     <div class="col">
-                        <p>Hair Exhibition</p>
+                        <p>{{$event->name}}</p>
                     </div>
                 </div>
                 <!-- Event Type -->
@@ -111,25 +111,25 @@
                         <p class="text-info">Event Type:</p>
                     </div>
                     <div class="col">
-                        <p>Exhibition</p>
+                        <p>{{$event->type}}</p>
                     </div>
                 </div>
                 <!-- Event Date -->
                 <div class="row pb-3">
                     <div class="col-4">
-                        <p class="text-info">Event Date:</p>
+                        <p class="text-info">Event Start Date:</p>
                     </div>
                     <div class="col">
-                        <p>11/01/2021</p>
+                        <p>{{$event->start_date}}</p>
                     </div>
                 </div>
                 <!-- Event Duration -->
                 <div class="row pb-3">
                     <div class="col-4">
-                        <p class="text-info">Event Date:</p>
+                        <p class="text-info">Event End Date:</p>
                     </div>
                     <div class="col">
-                        <p>1 day</p>
+                        <p>{{$event->end_date}}</p>
                     </div>
                 </div>
                 <!-- Event Location -->
@@ -138,7 +138,7 @@
                         <p class="text-info">Event Location:</p>
                     </div>
                     <div class="col">
-                        <p>Lagos, Nigeria</p>
+                        <p>{{$event->city}}, {{$event->state}}</p>
                     </div>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                             <p class="text-info">Organizers Name:</p>
                         </div>
                         <div class="col">
-                            <p>Lizzie Hairline</p>
+                            <p>{{$event->firstname}} {{$event->lastname}}</p>
                         </div>
                     </div>
                     <hr>
@@ -230,7 +230,7 @@
                                 <p class="text-info">Venue Name:</p>
                             </div>
                             <div class="col">
-                                <p>Eko Hotels & Suites</p>
+                                <p>{{$event->venue}}</p>
                             </div>
                         </div>
                         <hr>
@@ -240,7 +240,7 @@
                                 <p class="text-info">City:</p>
                             </div>
                             <div class="col">
-                                <p>Island</p>
+                                <p>{{$event->city}}</p>
                             </div>
                         </div>
                         <hr>
@@ -250,7 +250,7 @@
                                 <p class="text-info">State:</p>
                             </div>
                             <div class="col">
-                                <p>Lagos</p>
+                                <p>{{$event->state}}</p>
                             </div>
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                                 <p class="text-info">Organizers Name:</p>
                             </div>
                             <div class="col">
-                                <p>Lizzie Hairline</p>
+                                <p>{{$event->firstname}} {{$event->lastname}}</p>
                             </div>
                         </div>
                         <hr>
@@ -275,7 +275,7 @@
                                 <p class="text-info">Email:</p>
                             </div>
                             <div class="col">
-                                <p>lizziehairline@gmail.com</p>
+                                <p>{{$event->email}}</p>
                             </div>
                         </div>
                         <hr>
@@ -285,7 +285,7 @@
                                 <p class="text-info">Website:</p>
                             </div>
                             <div class="col">
-                                <p>lizziehairline.com</p>
+                                <p>{{$event->website}}</p>
                             </div>
                         </div>
                         <hr>
@@ -295,7 +295,7 @@
                                 <p class="text-info">Phone:</p>
                             </div>
                             <div class="col">
-                                <p>08012345689</p>
+                                <p>{{$event->phone}}</p>
                             </div>
                         </div>
                         <hr>
@@ -305,8 +305,8 @@
                                 <p class="text-info">Social</p>
                             </div>
                             <div class="col">
-                                <p><i class="fab fa-facebook-square"></i> lizziehairline</p>
-                                <p><i class="fab fa-twitter-square"></i> lizziehairline</p>
+                                <p><i class="fab fa-facebook-square"></i> {{$event->facebook}}</p>
+                                <p><i class="fab fa-twitter-square"></i> {{$event->twitter}}</p>
                             </div>
                         </div>
                     </div>

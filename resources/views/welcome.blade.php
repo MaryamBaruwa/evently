@@ -92,15 +92,15 @@
                 <h3 class="text-center mb-5"> <span class="text-info font-weight-bold cursive">Upcoming</span> Events Around You Today</h3>
                 <div class="row">
                 @foreach($events as $event)
-                  @if($event->start_date >= now() or $event->end_date >= now())
+                  @if($event->end_date >= now() or $event->start_date >= now())
                       <div class="col-md-4 col-xs-4 event my-4">
                           <div class="calendar text-white font-weight-bold mx-1">
-                              <div class="month bg-info p-1 text-center">Dec</div>
-                              <div class="day bg-light p-1 text-info text-center"> 12</div>
+                              <div class="month bg-info p-1 text-center">{{$event->start_date->format('M')}}</div>
+                              <div class="day bg-light p-1 text-info text-center">{{$event->start_date->format('d')}}</div>
                           </div>
                           <div class="details py-1 mx-1">
                               <a href="{{route('event.detail',  ['id' => $event->id])}}" class="text-primary">{{$event->name}}</a>
-                              <p class="icons mt-1"><i class="fas fa-search-location"></i>{{$event->city}}, {{$event->state}}. <i class="far fa-calendar-alt"></i> 12</p>
+                              <p class="icons mt-1"><i class="fas fa-search-location"></i>{{$event->city}}, {{$event->state}}. <i class="far fa-calendar-alt"></i>{{$event->start_date->toFormattedDateString()}}</p>
                           </div>
                       </div>
                   @endif

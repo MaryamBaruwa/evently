@@ -315,15 +315,15 @@
                 <div class="tab-pane fade" id="nav-images" role="tabpanel" aria-labelledby="nav-images-tab">
 
                     <div class="py-5">
-                        <div class="row">
+                        <div class="row uploaded-images">
                             <div class="col">
-                                <img src="{{asset('img/event.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/' . $event->event_logo)}}" alt="" class="img-fluid">
                             </div>
                             <div class="col">
-                                <img src="{{asset('img/showcase.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/' . $event->sponsor_image)}}" alt="" class="img-fluid">
                             </div>
                             <div class="col">
-                                <img src="{{asset('img/event.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/' . $event->speakers_image)}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>

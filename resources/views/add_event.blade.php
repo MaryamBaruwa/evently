@@ -86,7 +86,7 @@
             <p class="mt-3 lead">
                 <span class="font-weight-bold">To Submit An Event:</span> Complete the form below. Only upload PNG or JPEG images. Put the name of each Event, Speaker, and Sponsor in its related file name. To upload more than one image at a time for Sponsor and Speakers, click the Browse button and select all the images you wish to upload. You must include your contact person’s name, phone number, and their company email address. We will notify them within 48-72 hours to let you know if your event has been approved.  
             </p>
-            <form class="my-4 reg-form p-4" method="POST" action="{{route('event.create')}}">
+            <form class="my-4 reg-form p-4" method="POST" action="{{route('event.create')}}" enctype="multipart/form-data">
             @csrf
                 <div class="row">
                     <div class="col-md-4">

@@ -45,11 +45,38 @@ class EventController extends Controller
             "firstname" => "required",
             "lastname" => "required",
             "company_name" => "required",
-            "email" => "required|email:rfc,dns",
+            "email" => "required|email",
             "phone" => "required",
         ]);
 
-        auth()->user()->event()->create($request->all());
+        $event =  auth()->user()->event()->create($request->all());
+        $user_id = auth()->user()->id;
+
+        if ($request->hasFile('event_logo')) {
+            $eventLogo = 'logo_'.$user_id.time().'.'.$request->event_logo->extension();  
+            $request->event_logo->move(public_path('images'), $eventLogo);
+
+            $event->update([
+                'event_logo'=>$eventLogo
+            ]);
+        }
+        if ($request->hasFile('sponsor_image')) {
+            $sponsorImage = 'sponsor_'.$user_id.time().'.'.$request->sponsor_image->extension();  
+            $request->sponsor_image->move(public_path('images'), $sponsorImage);
+
+            $event->update([
+                'sponsor_image'=>$sponsorImage
+            ]);
+        }
+        if ($request->hasFile('speakers_image')) {
+            $speakersImage = 'speaker_'.$user_id.time().'.'.$request->speakers_image->extension();  
+            $request->speakers_image->move(public_path('images'), $speakersImage);
+
+            $event->update([
+                'speakers_image'=>$speakersImage
+            ]);
+        }
+
 
         return redirect()->route('dashboard')->with('message', 'Event created successfully');
     }
